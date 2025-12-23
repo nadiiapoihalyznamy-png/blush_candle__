@@ -1,77 +1,144 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blush Candle — Ніжні ароматичні свічки</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Загальні стилі */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #F6F0E9;
+    color: #3A2F5C;
+    scroll-behavior: smooth; /* плавний скрол */
+}
 
-<header class="hero">
-    <img src="https://honeylife.ua/image/cache/catalog/1%20svschku/%D0%94%D0%BE%20%D0%B4%D0%BD%D1%8F%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F/%D0%BA%D0%B5%D1%80/1IMG_2408_11zon-500x500.jpg" alt="Blush Candle" class="logo">
-    <h1>Blush Candle</h1>
-    <p>Ніжність, аромат та тепло для вашого дому</p>
-</header>
+a {
+    color: #8B5EAA;
+    text-decoration: none;
+}
 
-<section class="products">
-    <h2>Наші свічки 🕯️</h2>
-    <div class="cards-container">
-        <div class="card cheap">
-            <img src="https://www.laredim.com/static/content/thumbs/1520-1520/9/31/6hf2rd-d47b91e8faecd549b55a0af419b83319.jpeg" alt="Дешеві свічки">
-            <h3>Свічки за $10</h3>
-            <p>Бюджетний сегмент — чудовий вибір для подарунка або затишного вечора.</p>
-            <span class="price">$10</span>
-        </div>
-        <div class="card mid">
-            <img src="https://cdn4.jysk.com/getimage/wd3.large/243189" alt="Середні свічки">
-            <h3>Свічки за $50</h3>
-            <p>Середній сегмент — ароматні свічки з натуральними есенціями.</p>
-            <span class="price">$50</span>
-        </div>
-        <div class="card luxe">
-            <img src="https://images.prom.ua/4925164095_w640_h640_4925164095.jpg" alt="Люкс свічки">
-            <h3>Люкс свічки за $100</h3>
-            <p>Преміум-серія — ароматичні свічки ручної роботи з елітними ароматами.</p>
-            <span class="price">$100</span>
-        </div>
-    </div>
-</section>
+a:hover {
+    text-decoration: underline;
+}
 
-<section class="about">
-    <h2>Про магазин</h2>
-    <p>
-        Магазин Blush Candle створений, щоб дарувати затишок та тепло у вашому домі. 
-        Наші ароматичні свічки допомагають розслабитися, створюють особливу атмосферу 
-        та роблять буденні вечори чарівними. Ми подбали про те, щоб ви насолоджувалися продуктами, 
-        а не турбувалися про деталі виготовлення — кожна свічка створена з любов’ю та турботою.
-    </p>
-</section>
+/* Плавне з’явлення елементів */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.2s;
+}
 
-<section class="gallery">
-    <h2>Галерея наших свічок</h2>
-    <div class="gallery-container">
-    </div>
-</section>
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-<section class="contact">
-    <h2>Звʼязатися з нами</h2>
-    <p><strong>Ткачук Надія Олександрівна</strong><br>
-       Група: 4-12 ФТБ</p>
-    <p>Email: <a href="mailto:n.tkachuk_frhtb_12_22_b_d@knute.edu.ua">n.tkachuk_frhtb_12_22_b_d@knute.edu.ua</a></p>
-</section>
+/* Шапка */
+header.hero {
+    background: #DAC7E0;
+    text-align: center;
+    padding: 40px 20px;
+}
 
-<footer class="site-footer">
-    <img src="https://honeylife.ua/image/cache/catalog/1%20svschku/%D0%94%D0%BE%20%D0%B4%D0%BD%D1%8F%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F/%D0%BA%D0%B5%D1%80/1IMG_2408_11zon-500x500.jpg" alt="Blush Candle" class="footer-logo">
-    <p>© 2025 Blush Candle — ніжне світло та аромат для вашого дому</p>
-    <p>Ткачук Надія Олександрівна | Група: 4-12 ФТБ</p>
-    <p>Email: <a href="mailto:n.tkachuk_frhtb_12_22_b_d@knute.edu.ua">n.tkachuk_frhtb_12_22_b_d@knute.edu.ua</a></p>
-</footer>
+header.hero .logo {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
 
-<script>
+header.hero h1, header.hero p {
+    animation: fadeInUp 1s forwards;
+}
+
+/* Картки товарів */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Галерея */
+.gallery-container img {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* About та контакт */
+.about, .contact {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.about h2, .contact h2 {
+    margin-bottom: 20px;
+}
+
+/* Футер */
+.site-footer {
+    background: #3A2F5C;
+    color: #F6F0E9;
+    text-align: center;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+/* Адаптивність */
+@media (max-width: 992px) {
+    .card {
+        width: 45%;
+    }
+    .gallery-container img {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+    .gallery-container img {
+        width: 90%;
+    }
+}
+// Галерея свічок
 const galleryContainer = document.querySelector('.gallery-container');
-
-// Масив твоїх фото свічок
 const candleImages = [
     'https://cdn2.jysk.com/getimage/wd3.large/234292',
     'https://honeylife.ua/image/cache/catalog/1%20svschku/%D0%94%D0%BE%20%D0%B4%D0%BD%D1%8F%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F/%D0%BC%D0%B0%D0%BD%D0%B3%D0%BE/2IMG_2359-500x500.JPG',
@@ -83,14 +150,24 @@ const candleImages = [
     'https://image-thumbs.shafastatic.net/2168162432_310_430'
 ];
 
-// Вставляємо фото на сторінку
-candleImages.forEach(src => {
+candleImages.forEach((src, index) => {
     const img = document.createElement('img');
     img.src = src;
     img.alt = "Свічка";
+    img.classList.add('fade-in');
+    img.style.animationDelay = `${0.2 + index * 0.2}s`; // по черзі з’являються
     galleryContainer.appendChild(img);
 });
-</script>
 
-</body>
-</html>
+// Анімація для карток товарів
+const cards = document.querySelectorAll('.card');
+cards.forEach((card, index) => {
+    card.classList.add('fade-in');
+    card.style.animationDelay = `${0.2 + index * 0.2}s`;
+});
+
+// Анімація для about, contact та футера
+document.querySelector('.about').classList.add('fade-in');
+document.querySelector('.contact').classList.add('fade-in');
+document.querySelector('.site-footer').classList.add('fade-in');
+
